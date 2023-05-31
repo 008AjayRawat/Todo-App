@@ -27,5 +27,4 @@ class TaskRepository @Inject constructor(private val dao: TaskDao) : ITaskReposi
             }
     }
 
-
 }

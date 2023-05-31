@@ -10,4 +10,5 @@ interface ITaskRepository {
     suspend fun removeTask(task: DomainTask)
 
     fun getAll(): LiveData<List<DomainTask>>
+
 }

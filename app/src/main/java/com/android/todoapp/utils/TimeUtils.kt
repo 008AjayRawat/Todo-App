@@ -77,9 +77,24 @@ fun convertStringToDate(dateString: String): Date? {
     }
 }
 
+fun formatDateToString(date: Date): String {
+    val dateFormat = SimpleDateFormat("dd MMM, hh:mm a", Locale.getDefault())
+    return dateFormat.format(date)
+}
+
 fun convertDateToTimeString(date: Date): String {
-    val outputFormat = SimpleDateFormat("h:mm a", Locale.getDefault())
+    val outputFormat = SimpleDateFormat("dd-MM-yyyy h:mm a", Locale.getDefault())
     return outputFormat.format(date)
+}
+
+fun isDateToday(date: Date): Boolean {
+    val today = Calendar.getInstance()
+    val givenDate = Calendar.getInstance()
+    givenDate.time = date
+
+    return today.get(Calendar.YEAR) == givenDate.get(Calendar.YEAR) &&
+            today.get(Calendar.MONTH) == givenDate.get(Calendar.MONTH) &&
+            today.get(Calendar.DAY_OF_MONTH) == givenDate.get(Calendar.DAY_OF_MONTH)
 }
 
 fun isDateInPast(date: Date): Boolean {

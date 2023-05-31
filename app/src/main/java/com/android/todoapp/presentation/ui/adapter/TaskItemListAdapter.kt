@@ -51,7 +51,7 @@ class TaskItemListAdapter(private val callback: AdapterCallback, private var dat
                 binding.tvTitle.removeStrikeThroughAndBoldText()
             }
 
-            binding.time = convertDateToTimeString(task.endDate)
+            binding.time = formatDateToString(task.endDate)
             binding.isPending = isPending && isCompleted.not()
             binding.isChecked = isCompleted
 

@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -72,8 +75,8 @@ class TaskListFragment : Fragment(), View.OnClickListener, AdapterCallback {
             adapter.updateData(data)
             setEmptyView(data.isEmpty())
         }
-
     }
+
 
     private fun setEmptyView(enable: Boolean) {
         binding.rvTaskList.visibility = if (enable) View.GONE else View.VISIBLE
