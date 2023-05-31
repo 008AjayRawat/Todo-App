@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.fragment.AddTaskFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_heading"
+            android:layout_width="wrap_content"
+            android:text="@string/add_a_task"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline"
+            app:layout_constraintTop_toTopOf="@id/horizontal_guideline2"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_title"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/task_title"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/vertical_guideline_end"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@id/tv_heading">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_time"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:hint="@string/time"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/text_input_layout_am_pm"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_txt_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:maxLines="1"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_am_pm"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:hint=""
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/vertical_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/text_input_layout_time"
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout_title"
+            app:layout_constraintTop_toTopOf="@id/text_input_layout_time">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_txt_am_pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:drawableEnd="@drawable/ic_arrow_drop_down"
+                android:focusable="false"
+                android:maxLines="1"
+                android:textSize="16sp"
+                tools:text="PM" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_date"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:hint="@string/date"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout_time">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_txt_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:maxLines="1"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/btn_shape_round"
+            android:minWidth="120dp"
+            android:text="@string/cancel"
+            android:textColor="@color/purple_500"
+            app:layout_constraintEnd_toStartOf="@+id/btn_add"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline"
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout_date" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/purple_500"
+            android:minWidth="80dp"
+            android:text="@string/add"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/vertical_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/btn_cancel"
+            app:layout_constraintTop_toTopOf="@id/btn_cancel" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
