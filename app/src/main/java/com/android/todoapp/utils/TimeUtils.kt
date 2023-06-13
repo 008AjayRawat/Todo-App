@@ -3,6 +3,9 @@ package com.android.todoapp.utils
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.res.Resources
+import android.os.Build
+import android.widget.TimePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,7 +36,25 @@ fun getTimePickerDialog(
     val hour = currentTime.get(Calendar.HOUR_OF_DAY)
     val minute = currentTime.get(Calendar.MINUTE)
 
-    return TimePickerDialog(context, listener, hour, minute, is24HourView)
+    val picker = TimePickerDialog(context, { _, selectedHour, selectedMinute ->
+        listener.onTimeSet(null, selectedHour, selectedMinute)
+    }, hour, minute, is24HourView)
+
+    picker.setOnShowListener {
+        val timePicker = picker.findViewById<TimePicker>(Resources.getSystem().getIdentifier("timePicker", "id", "android"))
+
+        timePicker?.setOnTimeChangedListener { view, selectedHour, selectedMinute ->
+            if (selectedHour < hour || (selectedHour == hour && selectedMinute < minute)) {
+                timePicker.currentHour = hour
+                timePicker.currentMinute = minute
+            }
+        }
+
+        timePicker?.hour = hour
+        timePicker?.minute = minute
+    }
+
+    return picker
 
 }
 
